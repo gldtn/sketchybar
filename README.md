@@ -27,5 +27,5 @@ before I settle with a theme scheme!
 
 ### **Credits**
 
-- [@Pe8er] - for his sketchybar dotfile, which I started this config from.
-- [@FelixKratz] - for making sketchybar
+- [@Pe8er](https://github.com/pe8er) - for his sketchybar dotfile, which I started this config from.
+- [@FelixKratz](https://github.com/felixkratz) - for making sketchybar
