@@ -1,14 +1,8 @@
 local settings = require("settings")
 
-local app_name = "Menu Bar Calendar"
-
--- Click script template for toggling the menu bar app by name
-local click_script_template = [[osascript -e '
-tell application "System Events"
-    tell application process "%s"
-        click menu bar item 1 of menu bar 2
-    end tell
-end tell']]
+-- toggle UserNotificationCenter;
+-- You will need to set a shortcut a set the keycode below (currently set to f8(keycode `100`))
+local click_script_template = [[osascript -e 'tell application "System Events" to key code 100']]
 
 -- Padding item required because of bracket
 sbar.add("item", { position = "right", width = settings.group_paddings })
@@ -29,7 +23,7 @@ local cal = sbar.add("item", "calendar.item", {
 	},
 	update_freq = 30,
 	position = "right",
-	click_script = string.format(click_script_template, app_name),
+	click_script = string.format(click_script_template),
 })
 
 sbar.add("bracket", "widgets.calendar.bracket", { "calendar.item" }, {
