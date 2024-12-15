@@ -1,76 +1,89 @@
+local alpha = require("utils.color_utils").with_alpha
+
 local p = {
-	-- rosepine palette
-	rp = {
-		base = "191724",
-		surface = "1f1d2e",
-		overlay = "26233a",
-		muted = "6e6a86",
-		subtle = "908caa",
-		text = "e0def4",
-		gold = "f6c177",
-		love = "eb6f92",
-		rose = "ebbcba",
-		pine = "31748f",
-		foam = "9ccfd8",
-		iris = "c4a7e7",
-		highlight_low = "21202e",
-		highlight_med = "403d52",
-		highlight_high = "524f67",
-		bg_accent = "2a283e", -- highlight_low (var: moon)
-	},
+	base = "191724",
+	bg_alt = "2a283e", -- highlight_low (var: moon)
+	surface = "1f1d2e",
+	overlay = "26233a",
+	muted = "6e6a86",
+	subtle = "908caa",
+	text = "e0def4",
+	gold = "f6c177",
+	love = "eb6f92",
+	rose = "ebbcba",
+	pine = "31748f",
+	foam = "9ccfd8",
+	iris = "c4a7e7",
+	highlight_low = "21202e",
+	highlight_med = "403d52",
+	highlight_high = "524f67",
 }
-local themes = {
-	rose_pine = {
-		-- primary colors
-		primary = p.rp.gold,
-		secondary = p.rp.love,
-		highlight = p.rp.gold,
-		accent = {
-			primary = p.rp.foam,
-			secondary = p.rp.rose,
+
+return {
+	primary = p.love,
+	secondary = p.rose,
+	highlight = p.rose, -- spaces & front_app icon
+	accent = {
+		primary = p.foam,
+		secondary = p.rose,
+	},
+	icon = {
+		vibrant = p.rose,
+		vivid = p.text,
+		subtle = p.subtle,
+		dimmed = p.muted,
+		muted = p.highlight_med,
+	},
+	widgets = {
+		label_muted = p.muted,
+		label_highlight = p.love,
+		mail = {
+			unread = p.pine,
+			read = p.muted,
 		},
-		icon = {
-			vibrant = p.rp.foam,
-			vivid = p.rp.text,
-			subtle = p.rp.subtle,
-			dimmed = p.rp.muted,
-			muted = p.rp.highlight_med,
+		messages = {
+			unread = p.pine,
+			read = p.muted,
 		},
-		widgets = {
-			mail = p.rp.foam,
-			messages = p.rp.pine,
-			mic = {
-				on = p.rp.foam,
-				off = p.rp.love,
+		brew = {
+			outdated = p.rose,
+			updated = p.muted,
+		},
+		weather = p.rose,
+		network = {
+			connected = p.pine,
+			disconnected = p.love,
+		},
+		volume = {
+			slider = {
+				bg = p.base,
+				knob = p.text,
+				bar = p.pine,
 			},
-			network = {
-				connected = p.rp.foam,
-				disconnected = p.rp.love,
-			},
 		},
-		text = {
-			vibrant = p.rp.rose,
-			vivid = p.rp.text,
-			subtle = p.rp.subtle,
-			dimmed = p.rp.muted,
-			muted = p.rp.highlight_med,
-		},
-		bg = {
-			primary = p.rp.base,
-			secondary = p.rp.surface,
-			tertiary = p.rp.overlay,
-		},
-		bracket = {
-			bg = p.rp.bg_accent,
-			border = "181623", -- custom, between bar bg and bracket bg
-		},
-		popup = {
-			bg = p.rp.surface, -- Transparency can be handled manually if needed
-			border = p.rp.highlight_med,
-		},
-		bar = {
-			bg = p.rp.base,
-			border = "2c2e34",
-		},
+	},
+	text = {
+		vibrant = p.text,
+		vivid = p.text,
+		subtle = p.subtle,
+		dimmed = p.muted,
+		muted = p.highlight_med,
+	},
+	bg = {
+		primary = p.base,
+		secondary = p.surface,
+		tertiary = p.overlay,
+	},
+	bracket = {
+		bg = p.bg_alt,
+		border = p.base,
+	},
+	popup = {
+		bg = p.surface,
+		border = p.overlay,
+	},
+	bar = {
+		bg = alpha(tonumber(p.base, 16), 1), -- You can add transparency here (e.g 0.90)
+		border = p.base,
 	},
 }

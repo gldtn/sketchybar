@@ -90,11 +90,11 @@ return {
 		border = p.mantle,
 	},
 	popup = {
-		bg = p.surface0, -- Transparency can be handled manually if needed
+		bg = p.surface0,
 		border = p.surface1,
 	},
 	bar = {
-		bg = alpha(tonumber(p.base, 16), 0.99), -- Adds 50% transparency to bar.bg
+		bg = alpha(tonumber(p.base, 16), 1), -- You can add transparency here (e.g 0.90)
 		border = p.crust,
 	},
 }
