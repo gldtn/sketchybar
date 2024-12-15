@@ -20,35 +20,28 @@ local p = {
 }
 
 return {
-	primary = p.love,
-	secondary = p.rose,
 	highlight = p.rose, -- spaces & front_app icon
 	accent = {
 		primary = p.foam,
 		secondary = p.rose,
 	},
-	icon = {
-		vibrant = p.rose,
-		vivid = p.text,
-		subtle = p.subtle,
-		dimmed = p.muted,
-		muted = p.highlight_med,
-	},
 	widgets = {
+		-- notification widget icons
 		label_muted = p.muted,
-		label_highlight = p.love,
-		mail = {
-			unread = p.pine,
+		label_highlight = p.text,
+		messages = {
+			unread = p.foam,
 			read = p.muted,
 		},
-		messages = {
-			unread = p.pine,
+		mail = {
+			unread = p.rose,
 			read = p.muted,
 		},
 		brew = {
-			outdated = p.rose,
+			outdated = p.iris,
 			updated = p.muted,
 		},
+		-- others
 		weather = p.rose,
 		network = {
 			connected = p.pine,
@@ -61,6 +54,13 @@ return {
 				bar = p.pine,
 			},
 		},
+	},
+	icon = {
+		vibrant = p.rose,
+		vivid = p.text,
+		subtle = p.subtle,
+		dimmed = p.muted,
+		muted = p.highlight_med,
 	},
 	text = {
 		vibrant = p.text,

@@ -1,5 +1,5 @@
-local colors = require("colors")
 local icons = require("icons")
+local colors = require("colors")
 local settings = require("settings")
 
 local menu_watcher = sbar.add("item", {
@@ -71,7 +71,7 @@ space_menu_swap:subscribe("swap_menus_and_spaces", function(env)
 	else
 		menu_watcher:set({ updates = true })
 		sbar.set("/space\\..*/", { drawing = false })
-		sbar.set("front_app", { drawing = false })
+		sbar.set("front_app", { drawing = true })
 		update_menus()
 	end
 end)

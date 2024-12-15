@@ -16,7 +16,7 @@ return {
 
 	-- This is a font configuration for SF Pro and SF Mono (installed manually)
 	font = {
-		default = {},
+		-- default = {},
 		text = "SF Pro", -- Used for text
 		numbers = "SF Mono", -- Used for numbers
 		icons = "Symbols Nerd Font Mono", -- Used for icons

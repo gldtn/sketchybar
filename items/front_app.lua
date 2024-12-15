@@ -5,23 +5,23 @@ local app_icons = require("helpers.app_icons")
 local front_app = sbar.add("item", "front_app", {
 	-- display = "active",
 	position = "left",
-
+	updates = true,
 	icon = {
 		drawing = true,
-		padding_left = 4,
-		padding_right = 4,
-		font = { family = settings.font.icons },
+		-- padding_left = 6,
+		padding_right = 6,
 		color = colors.theme.highlight,
+		font = {
+			family = settings.font.icons,
+			size = settings.font.size_map["Medium"],
+		},
 	},
-
 	label = {
 		color = colors.theme.text.vibrant,
 		font = {
 			style = settings.font.style_map["Black"],
 		},
 	},
-
-	updates = true,
 })
 
 -- Define app groups and their fallback icons

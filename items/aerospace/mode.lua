@@ -24,7 +24,7 @@ local aerospace_mode = sbar.add("item", "aerospace_mode", {
 		padding_right = 0,
 		color = colors.theme.icon.vibrant,
 		highlight_color = colors.theme.highlight,
-		font = { family = settings.font.icons, size = settings.font.size_map["Medium"] },
+		font = { family = settings.font.icons, size = settings.font.size_map["Large"] },
 	},
 	label = {
 		drawing = true,

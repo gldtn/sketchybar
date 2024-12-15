@@ -30,22 +30,13 @@ local p = {
 }
 
 return {
-	-- primary colors
-	primary = p.flamingo,
-	secondary = p.maroon,
 	highlight = p.yellow, -- spaces & front_app icon
 	accent = {
 		primary = p.lavender,
 		secondary = p.mauve,
 	},
-	icon = {
-		vibrant = p.lavender,
-		vivid = p.rosewater,
-		subtle = p.subtext0,
-		dimmed = p.overlay0,
-		muted = p.surface0,
-	},
 	widgets = {
+		-- notification widgets
 		label_muted = p.subtext0,
 		label_highlight = p.peach,
 		mail = {
@@ -60,6 +51,7 @@ return {
 			outdated = p.maroon,
 			updated = p.lavender,
 		},
+		-- others
 		weather = p.rosewater,
 		network = {
 			connected = p.green,
@@ -72,6 +64,13 @@ return {
 				bar = p.lavender,
 			},
 		},
+	},
+	icon = {
+		vibrant = p.lavender,
+		vivid = p.rosewater,
+		subtle = p.subtext0,
+		dimmed = p.overlay0,
+		muted = p.surface0,
 	},
 	text = {
 		vibrant = p.text,
