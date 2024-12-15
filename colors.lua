@@ -2,7 +2,7 @@ local color_utils = require("utils.color_utils")
 
 -- Set your theme
 -- make sure it exists inside `themes/` folder
-local theme = "rose_pine"
+local theme = "catppuccin"
 
 local colors = {
 	theme = require("themes." .. theme),
