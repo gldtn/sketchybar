@@ -85,15 +85,19 @@ return {
 		tertiary = p.overlay1,
 	},
 	bracket = {
-		bg = p.surface0,
+		bg = alpha(tonumber(p.surface0, 16), 1),
 		border = p.mantle,
+	},
+	spaces = {
+		active_bg = alpha(tonumber(p.surface1, 16), 1),
+		inactive_bg = alpha(tonumber(p.surface0, 16), 1),
 	},
 	popup = {
 		bg = p.surface0,
 		border = p.surface1,
 	},
 	bar = {
-		bg = alpha(tonumber(p.base, 16), 1), -- You can add transparency here (e.g 0.90)
-		border = p.crust,
+		bg = alpha(tonumber(p.base, 16), 0.98), -- You can add transparency here (e.g 0.90)
+		-- border = p.crust,
 	},
 }

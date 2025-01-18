@@ -27,7 +27,7 @@ sbar.default({
 	},
 	-- controls app menu bracket
 	background = {
-		height = 27,
+		height = 30,
 		border_width = 1,
 		corner_radius = 4,
 		border_color = colors.theme.bracket.border,

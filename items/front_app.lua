@@ -1,102 +1,60 @@
 local colors = require("colors")
 local settings = require("settings")
-local app_icons = require("helpers.app_icons")
 
+-- Query the current space ID
+local space_id = sbar.exec("yabai -m query --windows --window | jq -r '.space'")
+
+-- Create the front app item
 local front_app = sbar.add("item", "front_app", {
-	-- display = "active",
-	position = "left",
-	updates = true,
-	icon = {
+	label = {
 		drawing = true,
-		-- padding_left = 6,
-		padding_right = 6,
 		color = colors.theme.highlight,
 		font = {
-			family = settings.font.icons,
+			family = settings.font.text,
+			style = settings.font.style_map["Semibold"],
 			size = settings.font.size_map["Medium"],
 		},
 	},
-	label = {
-		color = colors.theme.text.vibrant,
-		font = {
-			style = settings.font.style_map["Black"],
+	icon = {
+		background = {
+			drawing = true,
+			image = {
+				scale = 0.8,
+				padding_right = settings.item_padding,
+			},
 		},
 	},
+	updates = true,
+	space = space_id,
 })
 
--- Define app groups and their fallback icons
-local app_groups = {
-	browser_apps = { icon = app_icons.browsers.web, apps = { "arc", "duckduckgo", "microsoft edge", "google chrome" } },
-	mail_apps = { icon = app_icons.mail.default, apps = { "mail", "spark", "airmail", "outlook", "thunderbird" } },
-	terminal_apps = { icon = app_icons.terminal.default, apps = { "iterm", "terminal", "wezterm", "alacritty" } },
-	dev_apps = {
-		icon = app_icons.dev.default,
-		apps = {
-			"zed",
-			"vim",
-			"emacs",
-			"xcode",
-			"neovim",
-			"pycharm",
-			"phpstorm",
-			"webstorm",
-			"intellij",
-			"zed preview",
-			"sublime text",
-		},
-	},
-	ai_apps = { icon = app_icons.ai.default, apps = { "chatgpt", "openai" } },
-	chat_apps = { icon = app_icons.chat.default, apps = { "messages" } },
-	music_apps = { icon = app_icons.music.default, apps = { "itunes" } },
-	settings_apps = {
-		icon = app_icons.macos.cog,
-		apps = { "settings", "system settings", "system information", "system preferences" },
-	},
-}
-
--- Function to normalize app names (case-insensitive comparison)
-local function normalize_app_name(app_name)
-	return string.lower(app_name:gsub(" ", "_"))
-end
-
--- Function to find icon for the front app
-local function resolve_icon(app_name)
-	local normalized_name = normalize_app_name(app_name)
-
-	-- Check for specific app icon in the app_icons table
-	for _, icons in pairs(app_icons) do
-		if icons[normalized_name] then
-			return icons[normalized_name]
-		end
-	end
-
-	-- Check for app group fallback
-	for _, group in pairs(app_groups) do
-		for _, app in ipairs(group.apps) do
-			if normalize_app_name(app) == normalized_name then
-				return group.icon
-			end
-		end
-	end
-
-	-- Fallback to default app icon
-	return app_icons.general.app
-end
-
--- Subscribe to `front_app_switched` event
+-- Event: Front app switched
 front_app:subscribe("front_app_switched", function(env)
-	local app_name = env.INFO or "Unknown App"
-	local icon = resolve_icon(app_name)
-
-	-- Update the front app item
 	front_app:set({
-		icon = { string = icon },
-		label = { string = app_name },
+		icon = {
+			background = {
+				image = "app." .. env.INFO,
+				-- scale = 1.0, -- Adjust scale as needed
+				-- resolution = "16x16",
+			},
+		},
+		label = {
+			drawing = true,
+			string = env.INFO,
+		},
+		space = space_id,
 	})
 end)
 
--- Subscribe to mouse click event
----@diagnostic disable-next-line: unused-local
-front_app:subscribe("mouse.clicked", function(env)
+-- Event: Mouse clicked
+front_app:subscribe("mouse.clicked", function()
 	sbar.trigger("swap_menus_and_spaces")
 end)
+
+-- Add a spacer after the front app
+sbar.add("item", "front_app.spacer", {
+	width = settings.item_spacing,
+	background = { drawing = false },
+})
+
+return front_app

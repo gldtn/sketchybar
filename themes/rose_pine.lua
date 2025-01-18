@@ -84,6 +84,5 @@ return {
 	},
 	bar = {
 		bg = alpha(tonumber(p.base, 16), 1), -- You can add transparency here (e.g 0.90)
-		border = p.base,
 	},
 }

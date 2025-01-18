@@ -1,11 +1,11 @@
 -- left
 require("items.apple")
 require("items.menus")
-require("items.aerospace.spaces")
--- require("items.front_app")
+require("items.yabai.spaces")
+require("items.front_app")
 
 -- center
-require("items.aerospace.mode")
+-- require("items.aerospace.mode")
 
 -- right
 require("items.calendar")

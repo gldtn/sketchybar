@@ -3,12 +3,12 @@ local sbar = require("sketchybar")
 local settings = require("settings")
 
 local workspaces_metadata = {
-	[1] = { id = 1, name = "Home", icon = "􀎟" },
-	[2] = { id = 2, name = "Stage", icon = "􀎹" },
-	[3] = { id = 3, name = "Misc", icon = "􀑇" },
-	[4] = { id = 4, name = "Code", icon = "􀙚" },
-	[5] = { id = 5, name = "Comms", icon = "􁒙" },
-	[6] = { id = 6, name = "Mail", icon = "􀍖" },
+	[1] = { id = 1, name = "Code", icon = "􀙚" },
+	[2] = { id = 2, name = "Comms", icon = "􁒙" },
+	[3] = { id = 3, name = "Mail", icon = "􀍖" },
+	[4] = { id = 4, name = "Home", icon = "􀎟" },
+	[5] = { id = 5, name = "Stage", icon = "􀎹" },
+	[6] = { id = 6, name = "Misc", icon = "􀑇" },
 }
 
 local workspaces = {}
