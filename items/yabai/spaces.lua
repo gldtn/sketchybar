@@ -22,15 +22,16 @@ local function add_space(i)
 			align = "center",
 		},
 		background = {
-			height = settings.item_height,
+			height = settings.item.height,
 			color = colors.theme.spaces.active_bg,
-			corner_radius = settings.item_corner_radius,
+			border_width = settings.bracket.border_width,
+			corner_radius = settings.item.corner_radius,
 		},
 		popup = {
 			background = {
-				border_width = settings.popup_border_width,
+				border_width = settings.popup.border_width,
 				border_color = colors.theme.popup.border,
-				corner_radius = settings.popup_border_radius,
+				corner_radius = settings.popup.border_radius,
 				drawing = true, -- Enable popup drawing
 			},
 		},
@@ -40,7 +41,7 @@ local function add_space(i)
 	sbar.add("space", "space.padding." .. i, {
 		space = i,
 		script = "",
-		width = settings.item_spacing,
+		width = settings.item.spacing,
 	})
 
 	return space
@@ -51,10 +52,10 @@ local function add_space_popup(space)
 	return sbar.add("item", {
 		position = "popup." .. space.name,
 		background = {
-			padding_left = settings.popup_border_width,
+			padding_left = settings.popup.border_width,
 			drawing = true,
 			image = {
-				corner_radius = settings.bar_corner_radius,
+				corner_radius = settings.bar.corner_radius,
 				scale = 0.15,
 			},
 		},
@@ -74,6 +75,7 @@ local function subscribe_to_space_events(space, space_popup)
 			},
 			background = {
 				color = selected and colors.theme.spaces.active_bg or colors.theme.spaces.inactive_bg,
+				border_width = selected and settings.bracket.border_width or 0,
 			},
 			width = 40, -- Fixed width for simplicity
 		})
@@ -118,6 +120,6 @@ local space_window_observer = sbar.add("item", {
 
 -- Add a spacer after the spaces
 sbar.add("item", "spaces.spacer", {
-	width = settings.item_spacing,
+	width = settings.item.spacing,
 	background = { drawing = false },
 })

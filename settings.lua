@@ -3,6 +3,16 @@ local colors = require("colors")
 return {
 	paddings = 3,
 	group_paddings = 6,
+	group_spacing = 4,
+
+	bar = {
+		height = 36,
+		margin = 0,
+		padding = 0,
+		blur_radius = 0,
+		corner_radius = 0,
+		margin_padding = 18,
+	},
 
 	bracket = {
 		height = 28,
@@ -10,6 +20,22 @@ return {
 		corner_radius = 4,
 		color = colors.theme.bracket.bg,
 		border_color = colors.theme.bracket.border,
+	},
+
+	item = {
+		height = 26,
+		padding = 6,
+		corner_radius = 4,
+		spacing = 4,
+	},
+
+	popup = {
+		border_width = 2,
+		border_radius = 4,
+		blur_radius = 6,
+		y_offset = 0,
+		padding = 16,
+		image_padding = 0,
 	},
 
 	icons = "nerdfont", -- alternatively available: NerdFont
@@ -37,25 +63,4 @@ return {
 			["Large"] = 16.0,
 		},
 	},
-
-	-- bar_height = 33,
-	-- bar_corner_radius = 0,
-	-- bar_padding = 0,
-	-- bar_margin = 0,
-	-- bar_blur_radius = 0,
-	bar_margin_padding = 18,
-
-	item_height = 28,
-	item_padding = 6,
-	item_corner_radius = 4,
-	item_spacing = 6,
-
-	group_spacing = 4,
-	popup_border_width = 2,
-	popup_border_radius = 4,
-	popup_blur_radius = 6,
-	-- popup_y_offset = 4,
-	popup_y_offset = 0,
-	popup_padding = 16,
-	popup_image_padding = 0,
 }

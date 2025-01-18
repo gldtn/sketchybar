@@ -30,7 +30,7 @@ local p = {
 }
 
 return {
-	highlight = p.yellow, -- spaces & front_app icon
+	highlight = p.lavender, -- spaces & front_app icon
 	accent = {
 		primary = p.lavender,
 		secondary = p.mauve,
@@ -89,8 +89,8 @@ return {
 		border = p.mantle,
 	},
 	spaces = {
-		active_bg = alpha(tonumber(p.surface1, 16), 1),
-		inactive_bg = alpha(tonumber(p.surface0, 16), 1),
+		active_bg = p.surface0,
+		inactive_bg = p.base,
 	},
 	popup = {
 		bg = p.surface0,

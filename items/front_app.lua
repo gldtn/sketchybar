@@ -20,7 +20,7 @@ local front_app = sbar.add("item", "front_app", {
 			drawing = true,
 			image = {
 				scale = 0.8,
-				padding_right = settings.item_padding,
+				padding_right = settings.item.padding,
 			},
 		},
 	},
